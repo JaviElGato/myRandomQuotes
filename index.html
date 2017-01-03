@@ -1,0 +1,62 @@
+<!DOCTYPE HTML>
+
+<html>
+	<head>
+		<!--    Add Google font-->
+	    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+	    <link rel="stylesheet" href="main.css" title="no title" charset="utf-8">
+	    <link href="https://fonts.googleapis.com/css?family=Raleway::400,300,500,100" rel="stylesheet">
+	    <link href="https://fonts.googleapis.com/css?family=Ubuntu:400,300,500,100" rel="stylesheet">
+	    <script type="text/javascript" src="https://code.jquery.com/jquery-1.10.2.js"></script>
+
+	</head>
+
+	<script>
+		$(document).ready(function() {
+  getQuote();
+  $(".btn").click(getQuote);
+});
+
+function getQuote() {
+  $.ajax({
+    type: "POST",
+    crossDomain: true,
+    url: "http://api.forismatic.com/api/1.0/",
+    data: {method: "getQuote", format: "jsonp",lang: "en" },
+    dataType: "jsonp",
+    jsonp: "jsonp",
+    jsonpCallback: "parseQuote"
+  });
+}
+
+function parseQuote(response) {
+  $('#quote').text(response.quoteText);
+  $('#author').text(response.quoteAuthor);
+  var text = "'" + response.quoteText + response.quoteAuthor;
+  
+}
+
+	</script>
+
+
+
+	<body>
+
+		<div class="container">
+			<button class="btn" id="myButton">
+			<h1>Click on me!</h1>
+				<blockquote>
+					<p id="quote">
+					</p>
+					<footer id="author">
+					</footer>
+				</blockquote>
+			</button>
+			<h2><small> Thank you Forismatic API </small></h2>
+		</div>
+
+		
+
+	</body>
+
+</html>
