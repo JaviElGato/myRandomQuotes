@@ -23,3 +23,32 @@ body{
    	padding-right:10px;
    	min-width:100px;
 }
+
+#forTwitter{
+
+	display: block;
+    margin-top: 40px;
+    text-align: center;
+}
+
+#twitter{
+	height: 40px;
+	width: 100px;
+}
+
+.btn-custom {
+  background-color: hsl(194, 94%, 52%) !important;
+  background-repeat: repeat-x;
+  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr="#b9edfc", endColorstr="#11c1f7");
+  background-image: -khtml-gradient(linear, left top, left bottom, from(#b9edfc), to(#11c1f7));
+  background-image: -moz-linear-gradient(top, #b9edfc, #11c1f7);
+  background-image: -ms-linear-gradient(top, #b9edfc, #11c1f7);
+  background-image: -webkit-gradient(linear, left top, left bottom, color-stop(0%, #b9edfc), color-stop(100%, #11c1f7));
+  background-image: -webkit-linear-gradient(top, #b9edfc, #11c1f7);
+  background-image: -o-linear-gradient(top, #b9edfc, #11c1f7);
+  background-image: linear-gradient(#b9edfc, #11c1f7);
+  border-color: #11c1f7 #11c1f7 hsl(194, 94%, 43.5%);
+  color: #333 !important;
+  text-shadow: 0 1px 1px rgba(255, 255, 255, 0.56);
+  -webkit-font-smoothing: antialiased;
+}
