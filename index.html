@@ -8,13 +8,14 @@
 	    <link href="https://fonts.googleapis.com/css?family=Raleway::400,300,500,100" rel="stylesheet">
 	    <link href="https://fonts.googleapis.com/css?family=Ubuntu:400,300,500,100" rel="stylesheet">
 	    <script type="text/javascript" src="https://code.jquery.com/jquery-1.10.2.js"></script>
+	    <script type="text/javascript" src="https://platform.twitter.com/widgets.js"></script>
 
 	</head>
 
 	<script>
 		$(document).ready(function() {
   getQuote();
-  $(".btn").click(getQuote);
+  $("#myButton").click(getQuote);
 });
 
 function getQuote() {
@@ -32,7 +33,14 @@ function getQuote() {
 function parseQuote(response) {
   $('#quote').text(response.quoteText);
   $('#author').text(response.quoteAuthor);
-  var text = "'" + response.quoteText + response.quoteAuthor;
+  var text = "'" + response.quoteText + "' - " + response.quoteAuthor;
+  $('#twitter').empty();
+  twttr.widgets.createShareButton(
+    'just visit https://github.com/JaviElGato/myRandomQuotes',
+    document.getElementById('twitter'), {
+      text: text,
+    }
+  );
   
 }
 
@@ -52,8 +60,19 @@ function parseQuote(response) {
 					</footer>
 				</blockquote>
 			</button>
+
+			<div id="forTwitter">
+			<button class="btn btn-custom" id="twitter">
+				<p>Share the quote!</p>
+			</button>
 			<h2><small> Thank you Forismatic API </small></h2>
+			</div>
 		</div>
+
+		
+			
+
+		
 
 		
 
